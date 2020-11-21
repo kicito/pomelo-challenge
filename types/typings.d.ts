@@ -21,3 +21,9 @@ interface PomeloServerIface {
 	startServer(): Promise<void>;
 	stopServer(): Promise<void>;
 }
+
+interface GitHubAPIOptions {}
+
+interface GitHubAPIProps {
+	rate: { limit: number; remaining: number; reset: number };
+}

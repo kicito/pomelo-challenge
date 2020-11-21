@@ -1,7 +1,7 @@
 import { transform } from '../alg1';
 import mockingInput from '../../assets/alg1_in.json';
 
-test('transforming input should match type', () => {
+test('transforming input should match output in test case', () => {
 	const result: Alg1InputElem[] = transform(mockingInput);
 	expect(result).toHaveLength(1);
 	expect(result[0].id).toBe(10);

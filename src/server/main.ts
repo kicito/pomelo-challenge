@@ -19,6 +19,7 @@ export default class PomeloServer implements PomeloServerIface {
 		await this.server.start();
 		console.log(`Server running at: ${this.server.info.uri}`);
 	}
+	
 	public async stopServer(): Promise<void> {
 		await this.server.stop();
 		console.log(`Server stopped`);

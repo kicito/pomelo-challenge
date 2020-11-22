@@ -1,21 +1,32 @@
 import dotenv from 'dotenv-safe';
+import { PomeloServerIface } from '../types/typings';
 
 import PomeloServer from './server/main';
-import routes from './server/routes/main';
 
 // setup environment variable
 dotenv.config();
 
-const debug = process.env.DEBUG === 'true' ? { request: ['*'] } : false;
 
 process.on('unhandledRejection', err => tearDown(err, 1));
 
 process.on('SIGINT', tearDown);
-
-const server: PomeloServerIface = new PomeloServer(routes, {
-	port: process.env.SERVER_PORT,
-	host: process.env.SERVER_HOSTNAME,
-	debug,
+console.log({
+	port: process.env.SERVER_PORT!,
+	host: process.env.SERVER_HOSTNAME!,
+	github: {
+		client_id: process.env.GH_CLIENT_ID!,
+		secret_id: process.env.GH_SECRET_ID!,
+	},
+	debug: process.env.DEBUG === 'true',
+})
+const server: PomeloServerIface = new PomeloServer( {
+	port: process.env.SERVER_PORT!,
+	host: process.env.SERVER_HOSTNAME!,
+	github: {
+		client_id: process.env.GH_CLIENT_ID!,
+		secret_id: process.env.GH_SECRET_ID!,
+	},
+	debug: process.env.DEBUG === 'true',
 });
 
 function tearDown(err: any = null, errorCode?: number): void {

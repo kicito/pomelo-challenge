@@ -6,30 +6,50 @@
   "scripts": {
     "tsc": "tsc",
     "test": "jest",
-    "start": "npm run tsc && node ./dist/main.js"
+    "build": "npm run tsc && webpack --config webpack.config.js",
+    "start": "node ./dist/main.js",
+    "watch": "webpack --watch --progress --mode=development --config webpack.config.js"
   },
   "author": "Narongrit Unwerawattana",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
+    "@babel/core": "^7.12.7",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
     "@babel/preset-typescript": "^7.12.1",
     "@types/dotenv-safe": "^8.1.1",
     "@types/hapi__hapi": "^20.0.2",
     "@types/jest": "^26.0.15",
     "@types/joi": "^14.3.4",
+    "@webpack-cli/migrate": "^1.1.0",
     "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.1",
+    "css-loader": "^5.0.1",
+    "dotenv-webpack": "^5.1.0",
+    "html-webpack-plugin": "^4.5.0",
     "jest": "^26.6.3",
-    "ts-jest": "^26.4.4"
+    "mini-css-extract-plugin": "^1.3.1",
+    "ts-jest": "^26.4.4",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^15.9.5",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.12.5",
     "@hapi/hapi": "^20.0.2",
+    "@hapi/inert": "^6.0.3",
     "axios": "^0.21.0",
     "dotenv": "^8.2.0",
     "dotenv-safe": "^8.2.0",
     "hapi-pino": "^8.3.0",
     "joi": "^17.3.0",
-    "typescript": "^4.0.5"
+    "qs": "^6.9.4",
+    "typescript": "^4.0.5",
+    "vue": "^2.6.12"
   }
 }

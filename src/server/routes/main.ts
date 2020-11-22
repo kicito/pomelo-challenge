@@ -1,7 +1,8 @@
-import { ServerRoute } from '@hapi/hapi';
+import { Route } from '../../../types/typings';
 import pageNotFoundHandler from './404';
 import agl1Route from './agl1';
-
-const routes: ServerRoute[] = [agl1Route];
+import gitHubRoute from './github';
+import staticRoute from './static';
+const routes: Route[] = [agl1Route, gitHubRoute, staticRoute];
 
 export default [...routes, pageNotFoundHandler];

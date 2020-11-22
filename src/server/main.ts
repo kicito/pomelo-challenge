@@ -1,11 +1,21 @@
-import { Server, ServerOptions, ServerRoute } from '@hapi/hapi';
+import { Server } from '@hapi/hapi';
+import { PomeloServerIface, PomeloServerOptions } from '../../types/typings';
+import routes from './routes/main';
+import path from 'path';
 export default class PomeloServer implements PomeloServerIface {
 	server: Server;
-	constructor(routes: ServerRoute[], options?: ServerOptions) {
-		this.server = new Server(options);
-		for (const route of routes) {
-			this.server.route(route);
-		}
+	constructor(options: PomeloServerOptions) {
+		this.server = new Server({
+			host: options.host,
+			port: options.port,
+			debug: options.debug ? { request: ['*'] } : false,
+			routes: {
+				files: {
+					relativeTo: path.join(__dirname, '../public'),
+				},
+			},
+		});
+		(<any>this.server.app).github = options.github;
 	}
 
 	public async startServer(): Promise<void> {
@@ -16,10 +26,16 @@ export default class PomeloServer implements PomeloServerIface {
 			},
 		});
 
+		this.server.log('setting up routes');
+		for await (const route of routes) {
+			route.init(this.server);
+		}
+		this.server.log('set up routes success');
+
 		await this.server.start();
-		console.log(`Server running at: ${this.server.info.uri}`);
+		this.server.log(`Server running at: ${this.server.info.uri}`);
 	}
-	
+
 	public async stopServer(): Promise<void> {
 		await this.server.stop();
 		console.log(`Server stopped`);

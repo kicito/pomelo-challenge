@@ -1,3 +1,4 @@
+import { Alg1Input, Alg1InputElem } from '../../types/typings';
 import BinaryHeap from './BinaryHeap';
 
 // flatten an Alg1Input to an array of Alg1InputElem

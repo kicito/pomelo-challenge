@@ -1,5 +1,6 @@
 import { transform } from '../alg1';
 import mockingInput from '../../assets/alg1_in.json';
+import { Alg1InputElem } from '../../../types/typings';
 
 test('transforming input should match output in test case', () => {
 	const result: Alg1InputElem[] = transform(mockingInput);

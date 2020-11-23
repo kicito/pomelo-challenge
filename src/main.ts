@@ -10,15 +10,6 @@ dotenv.config();
 process.on('unhandledRejection', err => tearDown(err, 1));
 
 process.on('SIGINT', tearDown);
-console.log({
-	port: process.env.SERVER_PORT!,
-	host: process.env.SERVER_HOSTNAME!,
-	github: {
-		client_id: process.env.GH_CLIENT_ID!,
-		secret_id: process.env.GH_SECRET_ID!,
-	},
-	debug: process.env.DEBUG === 'true',
-})
 const server: PomeloServerIface = new PomeloServer( {
 	port: process.env.SERVER_PORT!,
 	host: process.env.SERVER_HOSTNAME!,

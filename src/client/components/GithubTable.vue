@@ -118,7 +118,6 @@ export default {
 		updateLimit: async function() {
 			this.is_loading = true;
 			const result = await axios.get('/api/limit');
-			console.log(result.data);
 			this.limit = result.data.limit;
 			this.remaining = result.data.remaining;
 			this.limit_reset = new Date(result.data.reset * 1000);

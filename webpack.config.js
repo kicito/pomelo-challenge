@@ -33,17 +33,17 @@ const config = {
 			{
 				test: /\.css$/,
 				use: [
-				  process.env.NODE_ENV !== 'production'
-					? 'vue-style-loader'
-					: MiniCssExtractPlugin.loader,
-				  'css-loader'
-				]
+					process.env.NODE_ENV !== 'production'
+						? 'vue-style-loader'
+						: MiniCssExtractPlugin.loader,
+					'css-loader',
+				],
 			},
 		],
 	},
 	plugins: [
 		new VueLoaderPlugin(),
-		new Dotenv(),
+		new Dotenv({ safe: true }),
 		new HtmlWebpackPlugin({
 			filename: path.resolve(__dirname, './dist/public/index.html'),
 			template: path.resolve(__dirname, './src/client/index.html'),

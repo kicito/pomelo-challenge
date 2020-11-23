@@ -1,27 +1,46 @@
 <template>
 	<div class="result-wrapper">
 		<ul class="table">
-			<li class="cell" v-for="d in this.data" :key="d.name">
+			<li class="cell" v-for="(d, index) in this.data" :key="index">
 				<a :href="d.url">{{ d.name }}</a>
 			</li>
 		</ul>
-		<button @click="toFirst" v-if="this.hasFirst">
+		<button
+			@click="toFirst"
+			v-if="this.hasFirst"
+			:disabled="this.is_loading"
+		>
 			{{ this.getPageFromLink(this.link.first) }}
 		</button>
-		<button @click="prevPage" v-if="this.hasPrev">
+		<button
+			@click="prevPage"
+			v-if="this.hasPrev"
+			:disabled="this.is_loading"
+		>
 			Previous
 		</button>
-		<button @click="nextPage" v-if="this.hasNext">
+		<button
+			@click="nextPage"
+			v-if="this.hasNext"
+			:disabled="this.is_loading"
+		>
 			Next
 		</button>
-		<button @click="toLast" v-if="this.hasLast">
+		<button @click="toLast" v-if="this.hasLast" :disabled="this.is_loading">
 			{{ this.getPageFromLink(this.link.last) }}
 		</button>
 		<p>There are : {{ this.total }} items for "Nodejs" query</p>
 		<p>Total Calling limit : {{ this.limit }}</p>
 		<p>Current remaining : {{ this.remaining }}</p>
 		<p>Reset at : {{ this.limit_reset }}</p>
-		<p>Note: This application is limited the search result by Github rule. The Github search API only allows <a href="https://docs.github.com/en/free-pro-team@latest/rest/reference/search">up to 1,000 results for each search.</a></p>
+		<p>
+			Note: This application is limited the search result by Github rule.
+			The Github search API only allows
+			<a
+				href="https://docs.github.com/en/free-pro-team@latest/rest/reference/search"
+				>up to 1,000 results for each search.</a
+			>
+		</p>
 	</div>
 </template>
 
@@ -43,9 +62,9 @@ export default {
 	},
 	created: async function() {
 		await this.getPageData(this.page_number);
+		await this.updateLimit();
 	},
 	mounted: async function() {
-		await this.updateLimit();
 	},
 	computed: {
 		hasNext: function() {
@@ -63,16 +82,20 @@ export default {
 	},
 	methods: {
 		nextPage: async function() {
-			return this.getPageData(++this.page_number);
+			await this.getPageData(++this.page_number);
+			await this.updateLimit();
 		},
 		prevPage: async function() {
-			return this.getPageData(--this.page_number);
+			await this.getPageData(--this.page_number);
+			await this.updateLimit();
 		},
 		toLast: async function() {
-			return this.getPageData(this.getPageFromLink(this.link.last));
+			await this.getPageData(this.getPageFromLink(this.link.last));
+			await this.updateLimit();
 		},
 		toFirst: async function() {
-			return this.getPageData(1);
+			await this.getPageData(1);
+			await this.updateLimit();
 		},
 		getPageFromLink: function(link) {
 			return qs.parse(link.split('?')[1]).page;
@@ -95,6 +118,7 @@ export default {
 		updateLimit: async function() {
 			this.is_loading = true;
 			const result = await axios.get('/api/limit');
+			console.log(result.data);
 			this.limit = result.data.limit;
 			this.remaining = result.data.remaining;
 			this.limit_reset = new Date(result.data.reset * 1000);

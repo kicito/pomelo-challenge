@@ -40,8 +40,6 @@ export default class GitHubAPI {
 	}
 
 	async getRateLimit() {
-		const result = await this.axios.get('/rate_limit');
-		this.setRateLimit(result.headers);
 		return this.props.rate;
 	}
 
@@ -55,6 +53,7 @@ export default class GitHubAPI {
 		this.props.rate.reset = headers['x-ratelimit-reset']
 			? Number(headers['x-ratelimit-reset'])
 			: this.props.rate.reset;
+		console.log(this.props.rate);
 	}
 
 	// parser for "Hypermedia link relations", retrieved from

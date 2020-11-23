@@ -34,8 +34,8 @@
 		<p>Current remaining : {{ this.remaining }}</p>
 		<p>Reset at : {{ this.limit_reset }}</p>
 		<p>
-			Note: This application is limited the search result due to Github API restriction.
-			The Github search API only allows
+			Note: This application is limited the search result due to Github
+			API restriction. The Github search API only allows
 			<a
 				href="https://docs.github.com/en/free-pro-team@latest/rest/reference/search"
 				>up to 1,000 results for each search.</a
@@ -64,8 +64,7 @@ export default {
 		await this.getPageData(this.page_number);
 		await this.updateLimit();
 	},
-	mounted: async function() {
-	},
+	mounted: async function() {},
 	computed: {
 		hasNext: function() {
 			return this.link.next ? true : false;
@@ -82,20 +81,42 @@ export default {
 	},
 	methods: {
 		nextPage: async function() {
-			await this.getPageData(++this.page_number);
-			await this.updateLimit();
+			try {
+				await this.getPageData(++this.page_number);
+				await this.updateLimit();
+			} catch (err) {
+				window.alert(JSON.stringify(err));
+				window.alert("the error might be caused from exceeding the api quota, please try again later");
+				this.is_loading = false;
+			}
 		},
 		prevPage: async function() {
-			await this.getPageData(--this.page_number);
-			await this.updateLimit();
+			try {
+				await this.getPageData(--this.page_number);
+				await this.updateLimit();
+			} catch (err) {
+				window.alert(JSON.stringify(err));
+				window.alert("the error might be caused from exceeding the api quota, please try again later");
+				this.is_loading = false;
+			}
 		},
 		toLast: async function() {
-			await this.getPageData(this.getPageFromLink(this.link.last));
-			await this.updateLimit();
+			try {
+				await this.getPageData(this.getPageFromLink(this.link.last));
+				await this.updateLimit();
+			} catch (err) {
+				window.alert(JSON.stringify(err));
+				window.alert("the error might be caused from exceeding the api quota, please try again later");
+			}
 		},
 		toFirst: async function() {
-			await this.getPageData(1);
-			await this.updateLimit();
+			try {
+				await this.getPageData(1);
+				await this.updateLimit();
+			} catch (err) {
+				window.alert(JSON.stringify(err));
+				window.alert("the error might be caused from exceeding the api quota, please try again later");
+			}
 		},
 		getPageFromLink: function(link) {
 			return qs.parse(link.split('?')[1]).page;

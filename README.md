@@ -10,6 +10,8 @@ Use the npm package manager for [node](https://nodejs.org/en/) to install this a
 npm install
 ```
 
+After install, create an .env file and fill the key according to 
+
 ## Running this app
 
 ``` bash

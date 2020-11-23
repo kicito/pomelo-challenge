@@ -349,6 +349,9 @@
     <h4 class="field-label">200</h4>
     Response from Github, including link property for pagination
         <a href="#NodeJSRequest">NodeJSRequest</a>
+    <h4 class="field-label">500</h4>
+    The error response from server, this might be a result from exceeding quota limit
+        <a href="#NodeErrorResponse">NodeErrorResponse</a>
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="apiNodejsPageGet"></a>
@@ -402,6 +405,9 @@
     <h4 class="field-label">200</h4>
     Response from Github, including link property for pagination
         <a href="#NodeJSRequest">NodeJSRequest</a>
+    <h4 class="field-label">500</h4>
+    The error response from server, this might be a result from exceeding
+        <a href="#NodeErrorResponse">NodeErrorResponse</a>
   </div> <!-- method -->
   <hr/>
 
@@ -414,6 +420,7 @@
     <li><a href="#Alg1InputElem"><code>Alg1InputElem</code></a></li>
     <li><a href="#Alg1Output"><code>Alg1Output</code></a></li>
     <li><a href="#LimitResult"><code>LimitResult</code></a></li>
+    <li><a href="#NodeErrorResponse"><code>NodeErrorResponse</code></a></li>
     <li><a href="#NodeJSRequest"><code>NodeJSRequest</code></a></li>
     <li><a href="#NodeJSRequest_link"><code>NodeJSRequest_link</code></a></li>
   </ol>
@@ -453,6 +460,15 @@
       <div class="param">limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> Number of calls that can be made from this API </div>
 <div class="param">remaining (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> Number of calls remaining </div>
 <div class="param">reset (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> The time at which the current rate limit window resets in UTC epoch seconds. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NodeErrorResponse"><code>NodeErrorResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The error response from the server</div>
+    <div class="field-items">
+      <div class="param">error (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">message (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">statusCode (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">

@@ -17,7 +17,8 @@ export default {
 		};
 	},
 	components: {
-		// GithubLogin,
+		// comment out as the implementation is not finished yet
+		// GithubLogin
 		GithubTable,
 	},
 };

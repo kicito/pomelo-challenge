@@ -21,10 +21,15 @@ export default class GitHubAPI {
 	}
 
 	async initialize() {
-		await this.getRateLimit();
+		// get rate limit from github api
+		const result = await this.axios.get('/rate_limit');
+		this.props.rate.limit = result.data.resources.search.limit
+		this.props.rate.remaining = result.data.resources.search.remaining
+		this.props.rate.reset = result.data.resources.search.reset
 		this.initialized = true;
 	}
 
+	// for future, this API may support authorize via oauth for increasing the limit
 	async getAccessToken(code: string, redirect_url: string) {
 		const result = await axios.post(
 			'/login/oauth/access_token',

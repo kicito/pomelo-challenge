@@ -16,7 +16,7 @@ export function flatten(input: Alg1Input): Alg1InputElem[] {
 
 export function transform(input: Alg1Input): Alg1InputElem[] {
     
-    // Flatten the input
+    // Flatten the input into array
 	const flattened: Alg1InputElem[] = flatten(input);
 	const result: Alg1InputElem[] = [];
 
@@ -61,5 +61,7 @@ export function transform(input: Alg1Input): Alg1InputElem[] {
 			result.push({ ...currElem });
 		}
 	}
+
+	// TODO: throw an error when input is incomplete eg. missing parent node, missing root node. 
 	return result;
 }

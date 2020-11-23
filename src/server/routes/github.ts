@@ -16,8 +16,8 @@ export default {
 				if (page < 1) {
 					page = 1;
 				}
-
-				return await githubAPI.searchRepo('nodejs', page);
+				const result = await githubAPI.searchRepo('nodejs', page);
+				return result;
 			},
 		});
 

@@ -34,7 +34,7 @@
 		<p>Current remaining : {{ this.remaining }}</p>
 		<p>Reset at : {{ this.limit_reset }}</p>
 		<p>
-			Note: This application is limited the search result by Github rule.
+			Note: This application is limited the search result due to Github API restriction.
 			The Github search API only allows
 			<a
 				href="https://docs.github.com/en/free-pro-team@latest/rest/reference/search"

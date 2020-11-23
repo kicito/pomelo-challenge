@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Pomelo Nodejs Challange API</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>Pomelo Nodejs Challange API</h1>
+    <div class="app-desc">Pomelo Nodejs Challange API</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="narongrit.kie@gmail.com">narongrit.kie@gmail.com</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/k1123/pomelo-challenge/1.0.0</div>
+    <div class="license-info">MIT License</div>
+    <div class="license-url">https://www.mit.edu/~amini/LICENSE.md</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Paths">Paths</a></h4>
+  <ul>
+  <li><a href="#apiAlg1Post"><code><span class="http-method">post</span> /api/alg1</code></a></li>
+  <li><a href="#apiLimitGet"><code><span class="http-method">get</span> /api/limit</code></a></li>
+  <li><a href="#apiNodejsGet"><code><span class="http-method">get</span> /api/nodejs</code></a></li>
+  <li><a href="#apiNodejsPageGet"><code><span class="http-method">get</span> /api/nodejs/{page}</code></a></li>
+  </ul>
+
+  <h1><a name="Paths">Paths</a></h1>
+  <div class="method"><a name="apiAlg1Post"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /api/alg1</code></pre></div>
+    <div class="method-summary">transfrom data format (<span class="nickname">apiAlg1Post</span>)</div>
+    <div class="method-notes">solver for challenge 1, transfrom json data format</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#map">map</a> (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash; data to transform </div>
+                </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Alg1Output">Alg1Output</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ {
+  "id" : 10,
+  "title" : "House",
+  "level" : 0,
+  "children" : [ ]
+}, {
+  "id" : 10,
+  "title" : "House",
+  "level" : 0,
+  "children" : [ ]
+} ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    item created
+        <a href="#Alg1Output">Alg1Output</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiLimitGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/limit</code></pre></div>
+    <div class="method-summary">Return status of request quota of Github API (<span class="nickname">apiLimitGet</span>)</div>
+    <div class="method-notes">Send a request to Github api to retrive current quota status</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#LimitResult">LimitResult</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "limit" : 0.8008281904610115,
+  "reset" : 1.4658129805029452,
+  "remaining" : 6.027456183070403
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Quota status of this service
+        <a href="#LimitResult">LimitResult</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiNodejsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/nodejs</code></pre></div>
+    <div class="method-summary">Search for repositories with query &#x27;nodejs&#x27; from Github, at first page (<span class="nickname">apiNodejsGet</span>)</div>
+    <div class="method-notes">Send a request to Github api to retrive repositories with query &#x27;nodejs&#x27; from Github. This endpoint returns 10 items for each call. This request is equivalent to calling &#x27;GET /api/nodejs/1&#x27;</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#NodeJSRequest">NodeJSRequest</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "total_count" : 0.8008281904610115,
+  "link" : {
+    "next" : "next",
+    "last" : "last",
+    "prev" : "prev",
+    "first" : "first"
+  },
+  "incomplete_results" : true,
+  "items" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Response from Github, including link property for pagination
+        <a href="#NodeJSRequest">NodeJSRequest</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="apiNodejsPageGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /api/nodejs/{page}</code></pre></div>
+    <div class="method-summary">Search for repositories with query &#x27;nodejs&#x27; from Github (<span class="nickname">apiNodejsPageGet</span>)</div>
+    <div class="method-notes">Send a request to Github api to retrive repositories with query &#x27;nodejs&#x27; from Github. This endpoint returns 10 items for each call</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">page (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Page number, missing this value will return result of first page format: int64</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#NodeJSRequest">NodeJSRequest</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "total_count" : 0.8008281904610115,
+  "link" : {
+    "next" : "next",
+    "last" : "last",
+    "prev" : "prev",
+    "first" : "first"
+  },
+  "incomplete_results" : true,
+  "items" : ""
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Response from Github, including link property for pagination
+        <a href="#NodeJSRequest">NodeJSRequest</a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Alg1Input"><code>Alg1Input</code></a></li>
+    <li><a href="#Alg1InputElem"><code>Alg1InputElem</code></a></li>
+    <li><a href="#Alg1Output"><code>Alg1Output</code></a></li>
+    <li><a href="#LimitResult"><code>LimitResult</code></a></li>
+    <li><a href="#NodeJSRequest"><code>NodeJSRequest</code></a></li>
+    <li><a href="#NodeJSRequest_link"><code>NodeJSRequest_link</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Alg1Input"><code>Alg1Input</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Alg1InputElem"><code>Alg1InputElem</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 10</span></div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: House</span></div>
+<div class="param">level </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 0</span></div>
+<div class="param">children </div><div class="param-desc"><span class="param-type"><a href="#Alg1InputElem">array[Alg1InputElem]</a></span> An array containing list of elements which is a type of &lt;strong&gt;&lt;em&gt;Alg1InputElem&lt;/em&gt;&lt;/strong&gt;, it&#x27;s &lt;em&gt;parent_id&lt;/em&gt; property must match &lt;em&gt;id&lt;/em&gt; property. </div>
+          <div class="param-desc"><span class="param-type">example: [{&quot;id&quot;:12,&quot;title&quot;:&quot;Red Roof&quot;,&quot;level&quot;:1,&quot;children&quot;:[],&quot;parent_id&quot;:10}]</span></div>
+<div class="param">parent_id </div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+          <div class="param-desc"><span class="param-type">example: 10</span></div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Alg1Output"><code>Alg1Output</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="LimitResult"><code>LimitResult</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The status of current API limit</div>
+    <div class="field-items">
+      <div class="param">limit (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> Number of calls that can be made from this API </div>
+<div class="param">remaining (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> Number of calls remaining </div>
+<div class="param">reset (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> The time at which the current rate limit window resets in UTC epoch seconds. </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NodeJSRequest"><code>NodeJSRequest</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">link (optional)</div><div class="param-desc"><span class="param-type"><a href="#NodeJSRequest_link">NodeJSRequest_link</a></span>  </div>
+<div class="param">items (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">map[String, Object]</a></span> The &#x27;items&#x27; field in result returned from Github API, see &lt;a href&#x3D;&quot;https://developer.github.com/v3/search/#example&quot;&gt;Example from github api page&lt;/a&gt; for more detail </div>
+<div class="param">total_count (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span> The &#x27;total_count&#x27; field in result returned from Github API, see &lt;a href&#x3D;&quot;https://developer.github.com/v3/search/#example&quot;&gt;Example from github api page&lt;/a&gt; for more detail </div>
+<div class="param">incomplete_results (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> The &#x27;incomplete_results&#x27; field in result returned from the Github API, see &lt;a href&#x3D;&quot;https://developer.github.com/v3/search/#example&quot;&gt;Example from github api page&lt;/a&gt; for more detail </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="NodeJSRequest_link"><code>NodeJSRequest_link</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <div class='model-description'>The link to be used for pagination</div>
+    <div class="field-items">
+      <div class="param">next (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url to next page </div>
+<div class="param">prev (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url to previous page </div>
+<div class="param">last (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url to last page </div>
+<div class="param">first (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> url to first page </div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>

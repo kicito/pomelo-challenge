@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "2468df97-db33-43bc-81c7-bb3faa1d3687",
+		"name": "pomelo-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/agl1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"0\":\n  [{\"id\": 10,\n    \"title\": \"House\",\n    \"level\": 0,\n    \"children\": [],\n    \"parent_id\": null}],\n \"1\":\n  [{\"id\": 12,\n    \"title\": \"Red Roof\",\n    \"level\": 1,\n    \"children\": [],\n    \"parent_id\": 10},\n   {\"id\": 18,\n    \"title\": \"Blue Roof\",\n    \"level\": 1,\n    \"children\": [],\n    \"parent_id\": 10},\n   {\"id\": 13,\n    \"title\": \"Wall\",\n    \"level\": 1,\n    \"children\": [],\n    \"parent_id\": 10}],\n \"2\":\n  [{\"id\": 17,\n    \"title\": \"Blue Window\",\n    \"level\": 2,\n    \"children\": [],\n    \"parent_id\": 12},\n   {\"id\": 16,\n    \"title\": \"Door\",\n    \"level\": 2,\n    \"children\": [],\n    \"parent_id\": 13},\n   {\"id\": 15,\n    \"title\": \"Red Window\",\n    \"level\": 2,\n    \"children\": [],\n    \"parent_id\": 12}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}:{{port}}/api/alg1",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"alg1"
+					]
+				},
+				"description": "calls to alg1 path"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/limit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hostname}}:{{port}}/api/limit",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"limit"
+					]
+				},
+				"description": "call to /api/limit"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/nodejs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hostname}}:{{port}}/api/nodejs",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"nodejs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/nodejs/{page}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ce00dee4-bb1a-4a2f-b2aa-5cca4f90a25e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "333ad834-d857-44ca-a7aa-e280f0afb182",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6cfc143b-4864-42c0-ae49-c0e0a5295045",
+			"key": "hostname",
+			"value": "localhost"
+		},
+		{
+			"id": "9bf99a98-351d-4c91-9232-015f9838a780",
+			"key": "port",
+			"value": "3000"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
